@@ -4,7 +4,7 @@ resource "google_service_account" "default" {
 }
 
 resource "google_compute_instance" "default" {
-  name         = "my-instance"
+  name         = "soa-instance"
   machine_type = "n2-standard-2"
   zone         = "us-central1-a"
 
@@ -37,9 +37,31 @@ resource "google_compute_instance" "default" {
     foo = "bar"
   }
 
-  metadata_startup_script = "echo hi > /test.txt"
+  metadata_startup_script = <<-EOF
+    #!/bin/bash
+    sudo apt-get update
+    sudo apt-get install -y git
+    sudo git clone https://github.com/AngelArteaga1/-SA-Practica1_201901816.git /github
+    sudo apt-get install -y ansible
+  EOF
 
   service_account {
     scopes = ["cloud-platform"]
   }
+
 }
+
+resource "google_compute_firewall" "allow-http" {
+  name    = "allow-http"
+  network = "default"
+
+  allow {
+    protocol = "tcp"
+    ports    = ["80"]
+  }
+
+  source_ranges = ["0.0.0.0/0"]
+}
+
+
+// terraform destroy
