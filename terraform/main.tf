@@ -43,7 +43,7 @@ resource "google_compute_instance" "default" {
     sudo apt-get install -y git
     sudo git clone https://github.com/AngelArteaga1/-SA-Practica1_201901816.git /github
     sudo apt-get install -y ansible
-    ansible-playbook /github/ansible/playbook.yml
+    sudo ansible-playbook /github/ansible/playbook.yml
   EOF
 
   service_account {
