@@ -1,5 +1,6 @@
 # [SA]Practica1_201901816
 
+---
 ## Proceso de Instalación de Terraform en macOS
 Para poder instalar Terraform en macbook el proceso es algo distinto a cualquier máquina de linux, aunque las máquinas de mac son basadas en unix (hermana de linux), el proceso no es mismo y es necesario tener instalado otra herramienta
 
@@ -65,6 +66,7 @@ Esto debería mostrar la versión de Ansible instalada y otra información relev
 
 Ansible no requiere mucha configuración para empezar a usarlo. Sin embargo, puedes ajustar la configuración según tus necesidades en el archivo de configuración `ansible.cfg`, que suele encontrarse en `/etc/ansible/ansible.cfg`.
 
+---
 ## Como Funciona Terraform y Como se Utiliza
 
 Para poder utilizar terraform debemos de tener dos archivos .tf, uno que sirve como provider, donde colocamos el proveedor de máquinas virtuales, en este caso puede ser google cloud o aws.
@@ -179,6 +181,7 @@ _(Paso opcional) Para eliminar las vms creadas por terraform no es necesario acc
 terraform destroy
 ```
 
+---
 ## Como Funciona Ansible y Como se Utiliza
 
 Ansible es una herramienta que funciona para poder realizar configuraciones en servidores externos o internos, sin necesidad de tener que ingresar a la consola y hacerlo manualmente.
@@ -230,6 +233,7 @@ Primero debemos de crear un archivo `playbook.yml` con el siguiente código:
 ```
 Este archivo lo que hace es realizar las acciones que le definamos, primero realizamos la instalación de nginx, luego movemos el archivo `index.html` a la carpeta destino de nginx y por último reiniciamos el servidor para que tome los cambios necesarios.
 
+---
 ## Definición de Tecnologias Utilizadas
 
 ## Terraform
